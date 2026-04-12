@@ -118,6 +118,7 @@ alias du="dust"
 alias df="duf"
 alias k="kubectl"
 alias h="helm"
+alias mkdir="mkdir -p"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
