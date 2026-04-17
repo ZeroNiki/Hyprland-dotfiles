@@ -60,4 +60,16 @@ wk.add({
   -- ===== EXTRA =====
   { "K", vim.lsp.buf.hover, desc = "Hover Docs" },
   { "jj", "<Esc>", desc = "Exit Insert", mode = "i" }, -- твой быстрый выход
+
+  -- ===== Format =====
+  { "<leader>f", group = "File/Format" },
+  { "<leader>f", function() require("conform").format({ async = true, lsp_fallback = true }) end, desc = "Format file" },
+
+  -- ===== TERMINAL =====
+  { "<leader>t", group = "Terminal/Test" },
+  { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle Floating Terminal" },
+  
+  -- ===== Flash =====
+  { "<leader>s", group = "Search (Flash)" },
+  { "<leader>ss", function() require("flash").jump() end, desc = "Flash Jump" }
 })

@@ -85,12 +85,72 @@ require("lazy").setup({
     -- Git signs
     {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end},
 
-      -- Hop for fast motion
+    -- Hop for fast motion
+    -- {
+    --    "phaazon/hop.nvim", branch = "v2", config = function()
+    --    require("hop").setup()
+    --    vim.api.nvim_set_keymap("n", "<leader><leader>s", ":HopWord<CR>", { silent = true })
+    --  end
+    --},
+    -- Flash.nvim (Замена Hop)
     {
-        "phaazon/hop.nvim", branch = "v2", config = function()
-        require("hop").setup()
-        vim.api.nvim_set_keymap("n", "<leader><leader>s", ":HopWord<CR>", { silent = true })
+      "folke/flash.nvim",
+      event = "VeryLazy",
+      opts = {},
+      keys = {
+        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+        { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      },
+    },
+
+    -- Автоматические пары скобок
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      opts = {} -- эквивалентно require("nvim-autopairs").setup({})
+    },
+
+    -- Умное комментирование (gcc / gc)
+    {
+      "numToStr/Comment.nvim",
+      opts = {},
+      event = "VeryLazy",
+    },
+
+    -- Удобный терминал
+    {
+      "akinsho/toggleterm.nvim",
+      version = "*",
+      config = function()
+        require("toggleterm").setup({
+          open_mapping = [[<c-\>]], -- Открыть/закрыть терминал на Ctrl+\
+          direction = 'float',      -- Плавающее окно
+          float_opts = {
+            border = 'curved',      -- Скругленные края
+          },
+        })
       end
+    },
+
+    -- Форматирование кода (замена null-ls)
+    {
+      "stevearc/conform.nvim",
+      opts = {
+        formatters_by_ft = {
+          lua = { "stylua" },
+          python = { "isort", "black" },
+          yaml = { "prettier" },
+          json = { "prettier" },
+          html = { "prettier" },
+          bash = { "shfmt" },
+          markdown = { "prettier" },
+          ["*"] = { "codespell" }, -- Ищет опечатки во всех типах файлов
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
+        },
+      },
     },
 
     -- Статус-бар
@@ -101,6 +161,30 @@ require("lazy").setup({
 
     -- Подсветка синтаксиса
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
+    -- Neoscroll (плавный скролл)
+    {
+      "karb94/neoscroll.nvim",
+      config = function()
+        require('neoscroll').setup({
+          mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+          hide_cursor = true,          -- Скрывать курсор при скролле
+          stop_eof = true,             -- Останавливаться на конце файла
+          respect_scrolloff = false,   -- Учитывать scrolloff
+          cursor_scrolls_alone = true, -- Курсор двигается отдельно
+        })
+      end
+    },
+
+    -- Smear Cursor (эффект "тянущегося" курсора)
+    {
+      "sphamba/smear-cursor.nvim",
+      opts = {
+        smear_between_buffers = true,
+        smear_between_neighbor_lines = true,
+        cursor_color = "#fab387", -- Цвет под Gruvbox подходит отлично
+      },
+    },
 
     -- LSP + Mason + Completion
     {
