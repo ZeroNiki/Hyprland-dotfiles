@@ -121,6 +121,7 @@ alias k="kubectl"
 alias h="helm"
 alias mkdir="mkdir -p"
 alias otter="otter-launcher"
+alias c="clear"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -194,3 +195,6 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview 'bat -
 
 # Created by `pipx` on 2026-04-12 08:34:12
 export PATH="$PATH:/home/nellaror/.local/bin"
+
+export MANPAGER="less -R"
+export MANOPT="-L ru_RU.UTF-8"
