@@ -47,7 +47,7 @@
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
         "contentPadding": 2,
-        "density": "comfortable",
+        "density": "spacious",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
         "fontScale": 1,
@@ -98,6 +98,36 @@
                     "showBadge": true,
                     "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 1
+                },
+                {
+                    "defaultSettings": {
+                        "animate_window": true,
+                        "animation_cards_duration": 750,
+                        "animation_window_duration": 500,
+                        "background_color": null,
+                        "background_opacity": null,
+                        "card_height": 350,
+                        "card_spacing": 6,
+                        "card_strip_width": 90,
+                        "cards_shown": 11,
+                        "center_width_ratio": 0.33,
+                        "hide_help": false,
+                        "hide_top_bar": false,
+                        "image_filter": [
+                            "png",
+                            "jpg",
+                            "jpeg"
+                        ],
+                        "live_preview": false,
+                        "selected_filter": "images",
+                        "shear_factor": -0.25,
+                        "top_bar_height": 35,
+                        "video_filter": [
+                            "mp4",
+                            "avi"
+                        ]
+                    },
+                    "id": "plugin:wallcards"
                 }
             ],
             "left": [
@@ -113,32 +143,26 @@
                 },
                 {
                     "defaultSettings": {
-                        "aurCmd": "paru -Qua 2>/dev/null",
-                        "boldText": true,
-                        "boldVer": true,
-                        "boldVerDesktop": true,
-                        "boldVerPanel": true,
-                        "closeButton": true,
-                        "customIconPath": "",
-                        "desktopTip": true,
-                        "enableColorization": false,
-                        "flatpak": true,
-                        "hideOnEmpty": false,
-                        "hoverTip": true,
-                        "iconColor": "none",
-                        "iconName": "arrow-big-down-lines",
-                        "noctalia": true,
-                        "refreshInterval": 120,
-                        "refreshTimer": true,
-                        "systemCmd": "checkupdates 2>/dev/null",
-                        "toast": true,
-                        "tooltip": true,
-                        "updateCmd": "ghostty -e bash -c 'echo \"Updating System...\";paru; flatpak update; read -n 1 -p \"Press any key to exit...\"'",
-                        "useDistroLogo": false
+                        "refreshInterval": 5000
                     },
-                    "id": "plugin:arch-updater"
+                    "id": "plugin:mini-docker"
                 },
                 {
+                    "defaultSettings": {
+                        "iconColor": "none",
+                        "kubeconfigPath": "",
+                        "panelHeight": 680,
+                        "panelWidth": 620,
+                        "pollInterval": 60,
+                        "showErrorBadge": true,
+                        "terminal": ""
+                    },
+                    "id": "plugin:kubectl-ctx"
+                },
+                {
+                    "defaultSettings": {
+                        "mode": "region"
+                    },
                     "id": "plugin:screenshot"
                 },
                 {
@@ -171,18 +195,9 @@
                     "textColor": "none",
                     "useMonospaceFont": true,
                     "usePadding": false
-                },
-                {
-                    "colorizeIcons": false,
-                    "hideMode": "hidden",
-                    "id": "ActiveWindow",
-                    "maxWidth": 145,
-                    "scrollingMode": "hover",
-                    "showIcon": true,
-                    "showText": true,
-                    "textColor": "none",
-                    "useFixedWidth": false
-                },
+                }
+            ],
+            "right": [
                 {
                     "compactMode": false,
                     "hideMode": "hidden",
@@ -198,9 +213,18 @@
                     "textColor": "none",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
-                }
-            ],
-            "right": [
+                },
+                {
+                    "colorizeIcons": false,
+                    "hideMode": "hidden",
+                    "id": "ActiveWindow",
+                    "maxWidth": 145,
+                    "scrollingMode": "hover",
+                    "showIcon": true,
+                    "showText": true,
+                    "textColor": "none",
+                    "useFixedWidth": false
+                },
                 {
                     "blacklist": [
                     ],
@@ -210,6 +234,8 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
+                        "Telegram Desktop",
+                        "steam"
                     ]
                 },
                 {
@@ -226,9 +252,6 @@
                         "windowWidth": 1400
                     },
                     "id": "plugin:keybind-cheatsheet"
-                },
-                {
-                    "id": "plugin:wallcards"
                 },
                 {
                     "hideWhenZero": false,
@@ -267,7 +290,7 @@
                     "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
-                    "icon": "noctalia",
+                    "icon": "code-circle-filled",
                     "id": "ControlCenter",
                     "useDistroLogo": false
                 }
@@ -299,11 +322,11 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "tonal-spot",
+        "generationMethod": "rainbow",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Gruvbox",
+        "predefinedScheme": "GruvboxAlt",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
@@ -379,36 +402,23 @@
                     {
                         "id": "Weather",
                         "roundedCorners": true,
-                        "scale": 2.136453179888254,
+                        "scale": 1.513499471358543,
                         "showBackground": true,
                         "x": 20,
                         "y": 60
                     },
                     {
-                        "colorName": "primary",
-                        "height": 72,
-                        "hideWhenIdle": false,
-                        "id": "AudioVisualizer",
+                        "hideMode": "visible",
+                        "id": "MediaPlayer",
                         "roundedCorners": true,
-                        "scale": 1.8618600465274782,
+                        "scale": 1.0571025554286324,
+                        "showAlbumArt": true,
                         "showBackground": true,
+                        "showButtons": true,
+                        "showVisualizer": true,
                         "visualizerType": "linear",
-                        "width": 320,
-                        "x": 1300,
-                        "y": 1040
-                    },
-                    {
-                        "clockColor": "none",
-                        "clockStyle": "digital",
-                        "customFont": "",
-                        "format": "HH:mm\\nd MMMM yyyy",
-                        "id": "Clock",
-                        "roundedCorners": true,
-                        "scale": 2.114135122107054,
-                        "showBackground": true,
-                        "useCustomFont": false,
                         "x": 20,
-                        "y": 280
+                        "y": 220
                     }
                 ]
             }
@@ -493,7 +503,7 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": false,
-        "lockScreenBlur": 0,
+        "lockScreenBlur": 0.49,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
         ],
@@ -744,15 +754,27 @@
             {
                 "enabled": true,
                 "id": "btop"
+            },
+            {
+                "enabled": true,
+                "id": "yazi"
+            },
+            {
+                "enabled": true,
+                "id": "zathura"
+            },
+            {
+                "enabled": true,
+                "id": "steam"
             }
         ],
         "enableUserTheming": false
     },
     "ui": {
         "boxBorderEnabled": false,
-        "fontDefault": "JetBrainsMono Nerd Font",
+        "fontDefault": "JetBrainsMono NF",
         "fontDefaultScale": 0.95,
-        "fontFixed": "JetBrainsMono Nerd Font",
+        "fontFixed": "Terminess Nerd Font Mono",
         "fontFixedScale": 0.95,
         "panelBackgroundOpacity": 0.93,
         "panelsAttachedToBar": true,

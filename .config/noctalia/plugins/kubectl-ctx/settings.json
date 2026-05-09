@@ -1,0 +1,9 @@
+{
+  "kubeconfigPath": "",
+  "pollInterval": 60,
+  "showErrorBadge": true,
+  "iconColor": "none",
+  "terminal": "kitty",
+  "panelWidth": 580,
+  "panelHeight": 580
+}

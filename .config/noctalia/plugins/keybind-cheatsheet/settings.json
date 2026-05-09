@@ -510,7 +510,7 @@
   ],
   "detectedCompositor": "niri",
   "windowWidth": 1400,
-  "windowHeight": 0,
+  "windowHeight": 850,
   "autoHeight": true,
   "columnCount": 3,
   "modKeyVariable": "$mod",
