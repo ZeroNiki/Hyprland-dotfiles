@@ -263,6 +263,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
 spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "xwayland-satellite" ":0"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -312,6 +313,14 @@ window-rule {
 }
 
 window-rule {
+    match is-window-cast-target=true
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
@@ -324,12 +333,6 @@ window-rule {
     match app-id="firefox"
     open-floating false 
 }
-
-window-rule {
-    match app-id="steam"
-    open-floating true
-}
-
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
@@ -365,11 +368,20 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    // Захват текущего окна
+    // Mod+Ctrl+W { action set-dynamic-cast-window; }
+    // Захват текущего монитора
+    // Mod+Ctrl+M { action set-dynamic-cast-monitor; }
+    // Очистить захват
+    // Mod+Ctrl+C { clear-dynamic-cast-target; }
+
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+B hotkey-overlay-title="Open Browser: firefox" { spawn "firefox"; }
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: noctalia-shell" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+
+    Mod+G { spawn-sh "skwd wall toggle"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

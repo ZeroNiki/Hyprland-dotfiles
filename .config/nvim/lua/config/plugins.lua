@@ -41,6 +41,13 @@ require("lazy").setup({
     },
 
     {
+        "nvzone/typr",
+        dependencies = "nvzone/volt",
+        opts = {},
+        cmd = { "Typr", "TyprStats" },
+    }, 
+
+    {
       "folke/which-key.nvim",
       event = "VeryLazy",
     },

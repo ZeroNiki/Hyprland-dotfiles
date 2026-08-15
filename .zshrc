@@ -10,6 +10,7 @@ fi
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export TERM=xterm-256color
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -77,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions copyfile zsh-vi-mode zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions copyfile zsh-syntax-highlighting)
 # zsh-autocomplete
 
 source $ZSH/oh-my-zsh.sh
@@ -199,3 +200,6 @@ export PATH="$PATH:/home/nellaror/.local/bin"
 
 export MANPAGER="less -R"
 export MANOPT="-L ru_RU.UTF-8"
+
+export PATH=$PATH:/home/nellaror/.spicetify
+export PATH=$PATH:~/.spicetify
