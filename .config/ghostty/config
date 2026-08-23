@@ -1,0 +1,31 @@
+# Шрифты (укажите ваш любимый моноширинный шрифт и размер)
+theme = noctalia
+font-family = "JetBrainsMono Nerd Font"
+font-size = 15
+font-style = "Regular"
+
+# Внешний вид и прозрачность
+
+# Настройки окна
+window-padding-x = 12
+window-padding-y = 12
+window-decoration = true
+confirm-close-surface = false
+
+# Курсор
+cursor-style = block
+cursor-style-blink = true
+
+# Скроллбар и мышь
+mouse-hide-while-typing = true
+scrollback-limit = 10000
+
+# Интеграция с шеллом
+shell-integration = detect
+shell-integration-features = cursor, sudo, title
+
+# Либо вариант в стиле Vim (через Alt + h/j/k/l)
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:down
+keybind = alt+k=goto_split:up
+keybind = alt+l=goto_split:right

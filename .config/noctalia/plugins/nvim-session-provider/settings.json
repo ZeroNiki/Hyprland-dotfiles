@@ -1,6 +1,0 @@
-{
-  "nvim": "nvim",
-  "runInTerminal": true,
-  "sessionDir": "~/.local/share/nvim/sessions",
-  "includeInSearch": true
-}
