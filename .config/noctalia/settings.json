@@ -242,7 +242,9 @@
                         "steam",
                         "Flameshot",
                         "OBS Studio",
-                        "spotify-client"
+                        "spotify-client",
+                        "Discord",
+                        "Easy Effects"
                     ]
                 },
                 {
@@ -353,7 +355,7 @@
         "backlightDeviceMappings": [
         ],
         "brightnessStep": 5,
-        "enableDdcSupport": false,
+        "enableDdcSupport": true,
         "enforceMinimum": true
     },
     "calendar": {
